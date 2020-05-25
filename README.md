@@ -1,4 +1,4 @@
-# ts-GraphQL boilerplate / starter kit
+# TS-GraphQL boilerplate / starter kit
 
 #### A GraphQl server based solution made with node js,typescript,graphql,typeORM,jwt,docker,docker-compose,mongodb
 
