@@ -40,7 +40,7 @@ $ bash /scripts/script-dev.sh
 ## Running in production enviroment
 
 ```
-$ bash /scripts/script-dev.sh
+$ bash /scripts/script-prod.sh
 ```
 
 - triggering multistage build on docker container and running the project on production mode
