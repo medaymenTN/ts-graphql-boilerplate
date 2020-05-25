@@ -1,9 +1,9 @@
-import { Entity, ObjectID, ObjectIdColumn, Column } from "typeorm";
+import { Entity, ObjectID, ObjectIdColumn, Column, BaseEntity } from "typeorm";
 import { Field, ID, ObjectType } from "type-graphql";
 
 @ObjectType()
 @Entity()
-export class User  {
+export class User extends BaseEntity {
   @Field(() => ID)
   @ObjectIdColumn()
   id?: ObjectID;

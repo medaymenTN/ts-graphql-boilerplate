@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { createConnection, getConnectionOptions } from "typeorm";
+import { createConnection } from "typeorm";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
@@ -12,8 +12,11 @@ import { BookResolver } from "./resolvers/BookResolver";
   //put middleware here
 
   // get options from ormconfig.js
-  const dbOptions = await getConnectionOptions();
-  await createConnection({ ...dbOptions });
+
+  const connection = await createConnection();
+  if (connection) {
+    console.log("connected to database !!");
+  }
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [AuthResolver, BookResolver],

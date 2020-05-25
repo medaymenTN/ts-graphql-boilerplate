@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:   
   app:
@@ -31,3 +31,26 @@ services:
       - PORT=8082
       - CONN_NAME=mongo
       - DB_HOST=mongo
+  graphql-dev:
+      image: node:lts-buster-slim
+      container_name: ts-graphql-dev
+      volumes:
+          - type: bind
+            source: ./
+            target: /app
+          - type: volume
+            source: nodemodules
+            target: /app/node_modules
+            volume:
+                nocopy: true
+      working_dir: /app
+      command: npm run dev
+      ports:
+          - '4000:4000'
+      environment:
+          - NODE_ENV=development
+          - PORT=4000
+      depends_on:
+          - mongodb
+volumes:
+    nodemodules:
